@@ -2,7 +2,7 @@ Seantis Placemap
 ================
 
 Shows placemarks from multiple maps in one map, by combining kml-documents from
-other different urls.
+multiple urls.
 
 Commisioned by `Onegov`_ as a way to have simple maps for municipalities to
 show of scrap yards, barbecue pits and playgrounds.

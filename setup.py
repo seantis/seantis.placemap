@@ -5,7 +5,7 @@ name = 'seantis.placemap'
 
 description = (
     "Shows placemarks from multiple maps in one map, "
-    "by combining kml-documents from other different urls."
+    "by combining kml-documents from multiple urls."
 )
 
 version = '0.1'
