@@ -7,7 +7,7 @@
     <!-- Default Profile -->
     <genericsetup:registerProfile 
         name="default"
-        title="Seantis Placemak"
+        title="Seantis Placemap"
         description="Default Profile for Seantis Placemap"
         directory="profiles/default"
         provides="Products.GenericSetup.interfaces.EXTENSION"
