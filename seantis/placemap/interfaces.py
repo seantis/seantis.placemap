@@ -10,7 +10,7 @@ class ISeantisPlacemapSpecific(Interface):
     pass
 
 
-class IPlacemap(form.Schema):
+class IMap(form.Schema):
     """ Contains the urls to the kml documents. """
 
     title = schema.TextLine(
@@ -19,7 +19,7 @@ class IPlacemap(form.Schema):
     )
 
 
-class IPlacemapSource(form.Schema):
+class ISource(form.Schema):
     """ Defines the source of a kml document and describes features like
     the icon to use for placemarks or the color to use for lines.
 
