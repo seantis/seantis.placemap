@@ -24,7 +24,9 @@ def get_long_description():
     contributors = open(os.path.join('docs', 'CONTRIBUTORS.rst')).read()
 
     # cut the part before the description to avoid repetition on pypi
-    readme = readme[readme.index(description) + len(description):]
+    readme = readme[
+        readme.replace('\n', ' ').index(description) + len(description):
+    ]
 
     return '\n'.join((readme, contributors, history))
 
@@ -55,7 +57,7 @@ setup(
         'five.grok',
         'plone.app.dexterity [grok]',
         'collective.geo.openlayers',
-        'fastmkl',
+        'fastkml',
         'seantis.plonetools'
     ],
     extras_require=dict(
