@@ -56,6 +56,7 @@ setup(
         'plone.app.dexterity [grok]',
         'collective.geo.openlayers',
         'fastmkl',
+        'seantis.plonetools'
     ],
     extras_require=dict(
         tests=tests_require
