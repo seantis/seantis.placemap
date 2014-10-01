@@ -60,7 +60,9 @@ setup(
         'collective.geo.openlayers',
         'collective.geo.settings',
         'collective.geo.mapwidget',
+        'collective.js.underscore',
         'fastkml',
+        'requests',
         'seantis.plonetools',
     ],
     extras_require=dict(

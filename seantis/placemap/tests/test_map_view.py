@@ -2,6 +2,7 @@ from seantis.placemap import tests
 
 
 class TestMapView(tests.IntegrationTestCase):
+
     def get_map_view(self, map=None):
         map = map or self.create_map()
         return map.unrestrictedTraverse('@@view')

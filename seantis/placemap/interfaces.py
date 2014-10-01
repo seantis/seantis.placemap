@@ -34,3 +34,9 @@ class ISource(form.Schema):
         title=_(u"URL of KML Document"),
         required=True
     )
+
+    form.mode(kml='hidden')
+    kml = schema.Text(
+        title=_(u"KML Document"),
+        required=False
+    )

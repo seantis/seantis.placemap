@@ -4,4 +4,6 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="seantis.placemap">
 
+    <browser:resourceDirectory name="seantis.placemap.js" directory="js"/>
+
 </configure>

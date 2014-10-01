@@ -7,6 +7,14 @@
 
 <metal:block fill-slot="javascript_head_slot">
     <metal:openlayers use-macro="context/@@collectivegeo-macros/openlayers" />
+
+    <script type="text/javascript">
+      (function($){
+        $(window).on('maploadend', function(e, widget) {
+            seantis.placemap.enable_popups(widget.map);
+        });
+      })(jQuery);
+    </script>
 </metal:block>
 
 <metal:block fill-slot="content-core">
