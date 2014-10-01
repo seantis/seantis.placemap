@@ -54,11 +54,14 @@ setup(
     install_requires=[
         'Plone>=4.3',
         'plone.api',
-        'five.grok',
+        'plone.memoize',
         'plone.app.dexterity [grok]',
+        'five.grok',
         'collective.geo.openlayers',
+        'collective.geo.settings',
+        'collective.geo.mapwidget',
         'fastkml',
-        'seantis.plonetools'
+        'seantis.plonetools',
     ],
     extras_require=dict(
         tests=tests_require

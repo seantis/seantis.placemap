@@ -5,7 +5,20 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="seantis.placemap">
 
+<metal:block fill-slot="javascript_head_slot">
+    <metal:openlayers use-macro="context/@@collectivegeo-macros/openlayers" />
+</metal:block>
+
 <metal:block fill-slot="content-core">
+
+    <div class="no-placemap" tal:condition="not:view/show_map" i18n:translate="">
+        No sources have been added yet.
+    </div>
+
+    <div class="placemap" tal:condition="view/show_map">
+        <metal:mapwidget use-macro="context/@@collectivegeo-macros/map-widget"/>
+    </div>
+
 </metal:block>
 
 </html>
