@@ -8,7 +8,7 @@
     <genericsetup:registerProfile 
         name="default"
         title="Seantis Placemap"
-        description="Default Profile for Seantis Placemap"
+        description="Shows placemarks from multiple maps in one map, by combining kml-documents from multiple urls."
         directory="profiles/default"
         provides="Products.GenericSetup.interfaces.EXTENSION"
     />
