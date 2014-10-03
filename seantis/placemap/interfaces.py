@@ -1,4 +1,6 @@
+from collective.dexteritytextindexer import searchable
 from collective.z3cform.colorpicker.colorpicker import ColorpickerFieldWidget
+from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.directives import form
 from zope import schema
 from zope.interface import Interface
@@ -14,9 +16,18 @@ class ISeantisPlacemapSpecific(Interface):
 class IMap(form.Schema):
     """ Contains the urls to the kml documents. """
 
+    searchable('title')
     title = schema.TextLine(
         title=_(u"Name of the placemap"),
         required=True
+    )
+
+    searchable('description')
+    form.widget(description=WysiwygFieldWidget)
+    description = schema.Text(
+        title=_(u'Description'),
+        required=False,
+        default=u''
     )
 
 
@@ -26,6 +37,7 @@ class ISource(form.Schema):
 
     """
 
+    searchable('title')
     title = schema.TextLine(
         title=_(u"Name of the source"),
         required=True

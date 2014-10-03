@@ -57,6 +57,7 @@ setup(
         'plone.memoize',
         'plone.app.dexterity [grok]',
         'five.grok',
+        'collective.dexteritytextindexer',
         'collective.geo.openlayers',
         'collective.geo.settings',
         'collective.geo.mapwidget',

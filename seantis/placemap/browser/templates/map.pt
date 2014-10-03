@@ -17,6 +17,10 @@
     </script>
 </metal:block>
 
+<metal:content-title fill-slot="content-description">
+  <div class="placemap-description" tal:content="structure context/description" tal:condition="context/description"/>
+</metal:content-title>
+
 <metal:block fill-slot="content-core">
 
     <div class="without-sources" tal:condition="not:view/show_map" i18n:translate="">
