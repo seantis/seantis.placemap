@@ -53,3 +53,10 @@ class MapView(BaseView):
             path={'query': folder_path, 'depth': 1},
             portal_type='seantis.placemap.source'
         )
+
+    def get_item_state(self, item):
+        workflow = api.portal.get_tool('portal_workflow')
+
+        return workflow.getTitleForStateOnType(
+            item.review_state, item.portal_type
+        )

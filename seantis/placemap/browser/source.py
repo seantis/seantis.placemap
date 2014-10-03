@@ -16,6 +16,10 @@ class SourceBaseForm(BaseForm, AutoExtensibleForm):
     def success_url(self):
         return self.context.aq_inner.aq_parent.absolute_url()
 
+    @property
+    def cancel_url(self):
+        return self.success_url
+
     def before_save(self, data):
         data['kml'] = utils.fetch_kml_document(data['url'])
 
