@@ -10,7 +10,7 @@ this.seantis.placemap = (function() {
         var defaultStyle = new OpenLayers.Style({
             'pointRadius': 8,
             'fillColor': color,
-            'fillOpacity': 0.4,
+            'fillOpacity': 1.0,
             'strokeColor': '#fff',
             'strokeWidth': 1
         });

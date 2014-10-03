@@ -8,7 +8,7 @@ class SourceLayer(MapLayer):
 
     """
 
-    js_template = """
+    js_template = u"""
         function() {
             return seantis.placemap.create_kml_layer(
                 '%(url)s', '%(title)s', '%(color)s'
@@ -27,7 +27,7 @@ class SourceLayer(MapLayer):
         layer = SourceLayer()
 
         layer.id = source.id
-        layer.title = source.Title
+        layer.title = source.Title.decode('utf-8')
         layer.url = source.getURL() + '/kml-document'
         layer.color = source.color
 

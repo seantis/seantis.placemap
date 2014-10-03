@@ -13,10 +13,6 @@ class SourceBaseForm(BaseForm, AutoExtensibleForm):
     grok.baseclass()
 
     @property
-    def success_url(self):
-        return self.context.aq_inner.aq_parent.absolute_url()
-
-    @property
     def cancel_url(self):
         return self.success_url
 
@@ -37,6 +33,10 @@ class SourceAddForm(AddForm, SourceBaseForm):
 
     schema = ISource
 
+    @property
+    def success_url(self):
+        return self.context.absolute_url()
+
 
 class SourceEditForm(SourceBaseForm):
     """ Provides an edit form for memberships in seantis.kantonsrat. Said
@@ -50,6 +50,10 @@ class SourceEditForm(SourceBaseForm):
     grok.require('cmf.ModifyPortalContent')
 
     schema = ISource
+
+    @property
+    def success_url(self):
+        return self.context.aq_inner.aq_parent.absolute_url()
 
 
 class SourceKmlView(BaseView):
