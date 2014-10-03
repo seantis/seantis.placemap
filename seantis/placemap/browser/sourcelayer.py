@@ -27,8 +27,8 @@ class SourceLayer(MapLayer):
         layer = SourceLayer()
 
         layer.id = source.id
-        layer.title = source.title
-        layer.url = source.absolute_url() + '/kml-document'
+        layer.title = source.Title
+        layer.url = source.getURL() + '/kml-document'
         layer.color = source.color
 
         return layer

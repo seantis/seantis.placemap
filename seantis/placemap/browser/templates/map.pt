@@ -19,12 +19,25 @@
 
 <metal:block fill-slot="content-core">
 
-    <div class="no-placemap" tal:condition="not:view/show_map" i18n:translate="">
+    <div class="without-sources" tal:condition="not:view/show_map" i18n:translate="">
         No sources have been added yet.
     </div>
 
-    <div class="placemap" tal:condition="view/show_map">
-        <metal:mapwidget use-macro="context/@@collectivegeo-macros/map-widget"/>
+    <div class="with-sources" tal:condition="view/show_map">
+      <div class="placemap">
+          <metal:mapwidget use-macro="context/@@collectivegeo-macros/map-widget"/>
+      </div>
+      <div class="placemap-sources" tal:condition="view/show_map">
+        <h2 i18n:translate="">Legend</h2>
+        <ul>
+          <li tal:repeat="source view/get_sources" class="source">
+            <span class="placemap-icon" tal:attributes="style string:background-color:${source/color};" />
+            <span class="placemap-title" tal:content="source/Title" />
+          </li>
+        </ul>
+      </div>
+
+      <div class="clearFix" />
     </div>
 
 </metal:block>

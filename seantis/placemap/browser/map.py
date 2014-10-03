@@ -32,7 +32,7 @@ class MapView(BaseView):
         # the widget is stored somewhere by collective.geo so we
         # have to be sure to only add the source layers if not yet present
         new_sources = (
-            s.getObject() for s in self.get_sources() if s.id not in set(
+            s for s in self.get_sources() if s.id not in set(
                 layer.id for layer in widget._layers
             )
         )
