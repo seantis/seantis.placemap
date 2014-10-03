@@ -38,17 +38,9 @@ class MapView(BaseView):
         """
 
         widget = MapWidget(self, self.request, self.context)
-
-        # the widget is stored somewhere by collective.geo so we
-        # have to be sure to only add the source layers if not yet present
-        new_sources = (
-            s for s in self.get_sources() if s.id not in set(
-                layer.id for layer in widget._layers
-            )
+        widget._layers = tuple(
+            SourceLayer.from_source(s) for s in self.get_sources()
         )
-
-        for source in new_sources:
-            widget._layers.append(SourceLayer.from_source(source))
 
         return (widget, )
 
