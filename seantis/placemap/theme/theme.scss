@@ -47,4 +47,15 @@
     width: 10px;
     
     border-radius: 10px;
+
+    // show the icon like it's in its own column by taking it out of the
+    // flow and by moving the title and controls to the right.
+    position: absolute;
+    margin-top: 4px;
+}
+
+.placemap-title,
+.placemap-controls {
+    position: relative;
+    left: 16px;
 }

@@ -12,6 +12,10 @@ class SourceBaseForm(BaseForm, AutoExtensibleForm):
 
     grok.baseclass()
 
+    @property
+    def success_url(self):
+        return self.context.aq_inner.aq_parent.absolute_url()
+
     def before_save(self, data):
         data['kml'] = utils.fetch_kml_document(data['url'])
 

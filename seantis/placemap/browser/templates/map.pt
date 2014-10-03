@@ -33,6 +33,10 @@
           <li tal:repeat="source view/get_sources" class="source">
             <span class="placemap-icon" tal:attributes="style string:background-color:${source/color};" />
             <span class="placemap-title" tal:content="source/Title" />
+            <div class="placemap-controls" tal:condition="view/show_controls">
+              <a tal:attributes="href string:${source/getURL}/edit" i18n:translate="">Edit</a>
+              <a tal:attributes="href string:${source/getURL}/delete_confirmation" i18n:translate="">Delete</a>
+            </div>
           </li>
         </ul>
       </div>
