@@ -61,21 +61,22 @@ this.seantis.placemap = (function() {
             styleMap: style
         });
 
-        layer.is_placemap = true;
+        layer.is_popup_layer = true;
 
         return layer;
     };
 
-    self.enable_popups = function(map) {
+    self.get_popup_layers = function(map) {
+        var popup_layers = [];
         for (var i=0; i<map.layers.length; i++) {
-            if (map.layers[i].is_placemap === true) {
-                self.enable_popups_on_layer(map, map.layers[i]);
+            if (map.layers[i].is_popup_layer === true) {
+                popup_layers.push(map.layers[i]);
             }
         }
+        return popup_layers;
     };
 
-    self.enable_popups_on_layer = function(map, layer) {
-        var select = new OpenLayers.Control.SelectFeature(layer);
+    self.enable_popups = function(map) {
 
         var on_popup_close = function(event) {
             select.unselectAll();
@@ -109,10 +110,15 @@ this.seantis.placemap = (function() {
             }
         };
 
-        layer.events.on({
-            "featureselected": on_feature_select,
-            "featureunselected": on_feature_unselect
-        });
+        var layers = self.get_popup_layers(map);
+        var select = new OpenLayers.Control.SelectFeature(layers);
+
+        for (var i=0; i<layers.length; i++) {
+            layers[i].events.on({
+                "featureselected": on_feature_select,
+                "featureunselected": on_feature_unselect
+            });
+        }
 
         map.addControl(select);
         select.activate();

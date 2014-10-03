@@ -61,6 +61,7 @@ setup(
         'collective.geo.settings',
         'collective.geo.mapwidget',
         'collective.js.underscore',
+        'collective.z3cform.colorpicker',
         'fastkml',
         'requests',
         'seantis.plonetools>=0.13',

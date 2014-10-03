@@ -1,3 +1,4 @@
+from collective.z3cform.colorpicker.colorpicker import ColorpickerFieldWidget
 from plone.directives import form
 from zope import schema
 from zope.interface import Interface
@@ -35,6 +36,7 @@ class ISource(form.Schema):
         required=True
     )
 
+    form.widget(color=ColorpickerFieldWidget)
     color = HexColor(
         title=_(u"Placemark Color"),
         default=u'#0066c9',
