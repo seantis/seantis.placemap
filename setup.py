@@ -63,7 +63,7 @@ setup(
         'collective.js.underscore',
         'fastkml',
         'requests',
-        'seantis.plonetools',
+        'seantis.plonetools>=0.13',
     ],
     extras_require=dict(
         tests=tests_require

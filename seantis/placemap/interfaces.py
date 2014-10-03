@@ -3,7 +3,7 @@ from zope import schema
 from zope.interface import Interface
 
 from seantis.placemap import _
-from seantis.plonetools.schemafields import Website
+from seantis.plonetools.schemafields import Website, HexColor
 
 
 class ISeantisPlacemapSpecific(Interface):
@@ -32,6 +32,12 @@ class ISource(form.Schema):
 
     url = Website(
         title=_(u"URL of KML Document"),
+        required=True
+    )
+
+    color = HexColor(
+        title=_(u"Placemark Color"),
+        default=u'#0066c9',
         required=True
     )
 

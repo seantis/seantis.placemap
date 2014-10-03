@@ -10,13 +10,17 @@ class SourceLayer(MapLayer):
 
     js_template = """
         function() {
-            return seantis.placemap.create_kml_layer('%(url)s', '%(title)s');
+            return seantis.placemap.create_kml_layer(
+                '%(url)s', '%(title)s', '%(color)s'
+            );
         }
     """
 
     @memoizedproperty
     def jsfactory(self):
-        return self.js_template % dict(url=self.url, title=self.title)
+        return self.js_template % dict(
+            url=self.url, title=self.title, color=self.color
+        )
 
     @staticmethod
     def from_source(source):
@@ -25,5 +29,6 @@ class SourceLayer(MapLayer):
         layer.id = source.id
         layer.title = source.title
         layer.url = source.absolute_url() + '/kml-document'
+        layer.color = source.color
 
         return layer

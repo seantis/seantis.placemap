@@ -5,17 +5,60 @@ this.seantis.placemap = (function() {
     var self = this;
     var layers = [];
 
-    self.create_kml_layer = function(url, title) {
+    // http://stackoverflow.com/questions/13375039/javascript-calculate-darker-colour
+    self.darken_color = function(hex, percent) {
+        // strip the leading # if it's there
+        hex = hex.replace(/^\s*#|\s*$/g, '');
+
+        // convert 3 char codes --> 6, e.g. `E0F` --> `EE00FF`
+        if(hex.length == 3){
+            hex = hex.replace(/(.)/g, '$1$1');
+        }
+
+        var r = parseInt(hex.substr(0, 2), 16),
+            g = parseInt(hex.substr(2, 2), 16),
+            b = parseInt(hex.substr(4, 2), 16);
+
+        return '#' +
+           ((0|(1<<8) + r * (1 - percent / 100)).toString(16)).substr(1) +
+           ((0|(1<<8) + g * (1 - percent / 100)).toString(16)).substr(1) +
+           ((0|(1<<8) + b * (1 - percent / 100)).toString(16)).substr(1);
+    };
+
+    self.create_kml_layer = function(url, title, color) {
+
+        var defaultStyle = new OpenLayers.Style({
+            'pointRadius': 8,
+            'fillColor': color,
+            'fillOpacity': 0.4,
+            'strokeColor': self.darken_color(color, 0.2),
+            'strokeWidth': 1
+        });
+
+        var selectStyle = new OpenLayers.Style({
+            'pointRadius': 9,
+            'fillColor': '#fff',
+            'fillOpacity': 0.8,
+            'strokeColor': self.darken_color(color, 0.2),
+            'strokeWidth': 2
+        });
+
+        var style = new OpenLayers.StyleMap({
+            'default': defaultStyle,
+            'select': selectStyle
+        });
+
         var layer = new OpenLayers.Layer.Vector(title, {
             protocol: new OpenLayers.Protocol.HTTP({
                 url: url,
                 format: new OpenLayers.Format.KML({
-                    extractStyles: true,
+                    extractStyles: false,
                     extractAttributes: true
                 })
             }),
             strategies: [new OpenLayers.Strategy.Fixed()],
-            projection: new OpenLayers.Projection('EPSG:4326')
+            projection: new OpenLayers.Projection('EPSG:4326'),
+            styleMap: style
         });
 
         layer.is_placemap = true;
@@ -30,6 +73,7 @@ this.seantis.placemap = (function() {
             }
         }
     };
+
     self.enable_popups_on_layer = function(map, layer) {
         var select = new OpenLayers.Control.SelectFeature(layer);
 
