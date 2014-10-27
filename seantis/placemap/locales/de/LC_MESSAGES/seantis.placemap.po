@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-10-17 08:49+0000\n"
+"POT-Creation-Date: 2014-10-27 15:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr "Name der Standortkarte"
 msgid "Name of the source"
 msgstr "Name der Quelle"
 
-#: ./browser/source.py:24
+#: ./browser/source.py:26
 msgid "No KML-Document was found on the given url"
 msgstr "Auf der angegebenen URL konnte kein KML Dokument gefunden werden"
 
@@ -61,6 +61,10 @@ msgstr "Standort Quelle"
 #: ./interfaces.py:53
 msgid "Placemark Color"
 msgstr "Farbe"
+
+#: ./utils.py:16
+msgid "See the original resource"
+msgstr "Original-Ressource ansehen"
 
 #: ./interfaces.py:47
 msgid "URL of KML Document"

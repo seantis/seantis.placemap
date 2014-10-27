@@ -17,9 +17,11 @@ class SourceBaseForm(BaseForm, AutoExtensibleForm):
         return self.success_url
 
     def before_save(self, data):
-        data['kml'] = utils.fetch_kml_document(data['url'])
+        kml = utils.fetch_kml_document(data['url'])
 
-        if not data['kml']:
+        if kml:
+            data['kml'] = utils.translate_kml_document(self.request, kml)
+        else:
             self.raise_action_error(
                 _(u"No KML-Document was found on the given url")
             )
