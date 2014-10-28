@@ -65,7 +65,7 @@ setup(
         'collective.z3cform.colorpicker',
         'fastkml',
         'requests',
-        'seantis.plonetools>=0.13',
+        'seantis.plonetools>=0.14',
     ],
     extras_require=dict(
         tests=tests_require
