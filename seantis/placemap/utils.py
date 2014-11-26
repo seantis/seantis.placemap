@@ -1,9 +1,14 @@
 import fastkml
+import logging
 import lxml
+import re
 import requests
 
 from seantis.placemap import _
 from seantis.plonetools import tools
+
+
+log = logging.getLogger('seantis.placemap')
 
 
 def translate_kml_document(request, document):
@@ -14,6 +19,18 @@ def translate_kml_document(request, document):
     translation = translate(_(u"See the original resource"))
 
     return document.replace(u"See the original resource", translation)
+
+
+fixes = [
+    (re.compile(r'type="xsd:([a-z]+)"'), 'type="\g<1>"')
+]
+
+
+def fix_common_kml_problems(content):
+    for expression, substitute in fixes:
+        content = expression.sub(substitute, content)
+
+    return content
 
 
 def fetch_kml_document(url):
@@ -27,8 +44,12 @@ def fetch_kml_document(url):
             continue
 
         try:
-            fastkml.kml.KML().from_string(response.content)
+            # fix common problems with kml
+            fastkml.kml.KML().from_string(
+                fix_common_kml_problems(response.content)
+            )
         except (lxml.etree.XMLSyntaxError, TypeError):
+            log.exception("Error parsing KML")
             continue
         else:
             return response.content.decode('utf-8')
