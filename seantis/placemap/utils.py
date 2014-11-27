@@ -38,7 +38,10 @@ def fetch_kml_document(url):
     candidates = (url, url + '/@@kml-document')
 
     for url in candidates:
-        response = requests.get(url)
+        try:
+            response = requests.get(url)
+        except requests.exceptions.RequestException:
+            continue
 
         if response.status_code != 200:
             continue
