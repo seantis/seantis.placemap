@@ -12,7 +12,7 @@ this.seantis.placemap = (function() {
             'fillColor': color,
             'fillOpacity': 1.0,
             'strokeColor': '#fff',
-            'strokeWidth': 1
+            'strokeWidth': 2
         });
 
         var selectStyle = new OpenLayers.Style({
@@ -102,6 +102,28 @@ this.seantis.placemap = (function() {
 
         map.addControl(select);
         select.activate();
+    };
+
+    self.enable_source_filters = function(map, legend) {
+        $(legend).find('.source').click(function(e) {
+            var source = $(this);
+
+            if ($(e.target).is('a')) {
+                return;
+            }
+
+            var name = source.find('.placemap-title').text();
+            var layers = map.getLayersByName(name);
+
+            if (layers.length != 1){
+                return;
+            }
+
+            var visibility = ! layers[0].getVisibility();
+
+            layers[0].setVisibility(visibility);
+            source.toggleClass('is-hidden', !visibility);
+        });
     };
 
     return self;

@@ -12,6 +12,7 @@
       (function($){
         $(window).on('maploadend', function(e, widget) {
             seantis.placemap.enable_popups(widget.map);
+            seantis.placemap.enable_source_filters(widget.map, $('.placemap-sources'));
         });
       })(jQuery);
     </script>
@@ -34,7 +35,7 @@
       <div class="placemap-sources" tal:condition="view/show_map">
         <h2 i18n:translate="">Legend</h2>
         <ul>
-          <li tal:repeat="source view/get_sources" class="source">
+          <li tal:repeat="source view/get_sources" class="source" i18n:attributes="title" title="Show/Hide Markers">
             <span class="placemap-icon" tal:attributes="style string:background-color:${source/color};" />
             <span class="placemap-title" tal:content="source/Title" />
             <div class="placemap-controls" tal:condition="view/show_controls">
@@ -44,6 +45,7 @@
             </div>
           </li>
         </ul>
+        <p i18n:translate="">Click on an entry to hide it.</p>
       </div>
 
       <div class="clearFix" />

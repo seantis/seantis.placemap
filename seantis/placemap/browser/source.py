@@ -17,7 +17,6 @@ class SourceBaseForm(BaseForm, AutoExtensibleForm):
         return self.success_url
 
     def before_save(self, data):
-        import pdb; pdb.set_trace()
         kml = utils.fetch_kml_document(data['url'])
 
         if kml:

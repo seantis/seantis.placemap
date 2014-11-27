@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-11-07 15:26+0000\n"
+"POT-Creation-Date: 2014-11-27 14:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: seantis.placemap\n"
 
-#: ./browser/templates/map.pt:42
+#: ./browser/templates/map.pt:48
+msgid "Click on an entry to hide it."
+msgstr ""
+
+#: ./browser/templates/map.pt:43
 msgid "Delete"
 msgstr ""
 
@@ -25,7 +29,7 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: ./browser/templates/map.pt:41
+#: ./browser/templates/map.pt:42
 msgid "Edit"
 msgstr ""
 
@@ -33,7 +37,7 @@ msgstr ""
 msgid "KML Document"
 msgstr ""
 
-#: ./browser/templates/map.pt:35
+#: ./browser/templates/map.pt:36
 msgid "Legend"
 msgstr ""
 
@@ -45,11 +49,11 @@ msgstr ""
 msgid "Name of the source"
 msgstr ""
 
-#: ./browser/source.py:26
+#: ./browser/source.py:27
 msgid "No KML-Document was found on the given url"
 msgstr ""
 
-#: ./browser/templates/map.pt:26
+#: ./browser/templates/map.pt:27
 msgid "No sources have been added yet."
 msgstr ""
 
@@ -65,8 +69,12 @@ msgstr ""
 msgid "Placemark Color"
 msgstr ""
 
-#: ./utils.py:14
+#: ./utils.py:19
 msgid "See the original resource"
+msgstr ""
+
+#: ./browser/templates/map.pt:38
+msgid "Show/Hide Markers"
 msgstr ""
 
 #: ./interfaces.py:47

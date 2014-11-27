@@ -5,7 +5,10 @@ Changelog
 0.2 (unreleased)
 ~~~~~~~~~~~~~~~~
 
- - Makes sure bogus urls don't lead to an exception. Fixes #3
+ - Adds the ability to toggle markers by clicking on them. Fixes #2.
+   [href]
+
+ - Makes sure bogus urls don't lead to an exception. Fixes #3.
    [href]
 
  - Fixes KML before loading, to avoid common problems found in external
