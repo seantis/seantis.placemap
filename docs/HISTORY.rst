@@ -2,7 +2,7 @@
 Changelog
 ---------
 
-0.2 (unreleased)
+0.2 (2014-12-01)
 ~~~~~~~~~~~~~~~~
 
  - Adds the ability to toggle markers by clicking on them. Fixes #2.
