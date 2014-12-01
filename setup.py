@@ -8,7 +8,7 @@ description = (
     "by combining kml-documents from multiple urls."
 )
 
-version = '0.2'
+version = '0.3'
 
 tests_require = [
     'plone.app.testing',
