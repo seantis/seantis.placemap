@@ -20,7 +20,7 @@ Requirements
 Build Status
 ------------
 
-.. image:: https://travis-ci.org/seantis/seantis.placemap.png   
+.. image:: https://travis-ci.org/seantis/seantis.placemap.png
   :target: https://travis-ci.org/seantis/seantis.placemap
   :alt: Build Status
 
@@ -33,7 +33,7 @@ Coverage
 
 Latests PyPI Release
 --------------------
-.. image:: https://pypip.in/v/seantis.placemap/badge.png
+.. image:: https://img.shields.io/pypi/v/seantis.placemap.svg
   :target: https://crate.io/packages/seantis.placemap
   :alt: Latest PyPI Release
 
