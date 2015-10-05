@@ -15,7 +15,8 @@ tests_require = [
     'collective.betterbrowser[pyquery]',
     'seantis.plonetools[tests]',
     'mock',
-    'responses'
+    'responses',
+    'unittest2',
 ]
 
 
