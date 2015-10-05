@@ -68,6 +68,7 @@ setup(
         'requests',
         'seantis.plonetools>=0.14',
     ],
+    tests_require=tests_require,
     extras_require=dict(
         tests=tests_require
     ),
